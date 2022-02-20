@@ -1,6 +1,24 @@
 <!-- eslint-disable vue/max-attributes-per-line vue/singleline-html-element-content-newline -->
 <template>
-<b-container  id="container" ref="container" :toast="{root: true}" class="mt-4" fluid="sm">
+  <b-container id="container" ref="container" :toast="{root: true}" class="mt-4" fluid="sm">
+    <b-button id="tooltip-target-1">Hover Me</b-button>
+    <b-tooltip target="tooltip-target-1" triggers="hover">
+      I am tooltip
+      <b>component</b> content!
+    </b-tooltip>
+
+    <b-button id="tooltip-target-2">Hover Me</b-button>
+    <b-tooltip target="tooltip-target-2" triggers="hover">
+      I am tooltip
+      <b>component</b> content!
+    </b-tooltip>
+
+    <b-button id="tooltip-target-3">Hover Me</b-button>
+    <b-tooltip target="tooltip-target-3" triggers="hover" placement="bottom">
+      I am tooltip
+      <b>component</b> content!
+    </b-tooltip>
+
     <!-- Form -->
     <div class="my-2">
       <h2>Form</h2>
@@ -1094,7 +1112,9 @@
         >
           <template #thead-top>
             <tr class="my">
-              <th colspan="2"><span class="sr-only">List of users</span></th>
+              <th colspan="2">
+                <span class="sr-only">List of users</span>
+              </th>
             </tr>
           </template>
           <template #thead-sub="{key, label}">
@@ -1446,7 +1466,7 @@
       <div v-if="handledVisible">This should only show if handleVisible was triggered</div>
     </div>
 
-    <b-toast v-model="showToast"  title="Hello"  body="cow"></b-toast>
+    <b-toast v-model="showToast" title="Hello" body="cow"></b-toast>
     <b-button class="mt-3" @click="createToast()">Show Toast</b-button>
     <b-button class="mt-3" @click="consoleLog">Hide Toast</b-button>
     <div id="demo"></div>
@@ -1458,7 +1478,6 @@ import {ComponentPublicInstance, defineComponent, h, inject, onMounted, reactive
 import {useBreadcrumb} from './composables/useBreadcrumb'
 import TableField from './types/TableField'
 import {BvEvent} from './utils/bvEvent'
-import BFormTextarea from './components/BFormTextarea/BFormTextarea.vue'
 import {ToastInstance, useToast} from './components/BToast/plugin'
 
 export default defineComponent({
@@ -1597,8 +1616,7 @@ export default defineComponent({
     const handledVisible = ref(false)
     const buttonIsPressed = ref(false)
 
-    let c: ToastInstance | undefined
-    c = useToast()
+    const c: ToastInstance | undefined = useToast()
     onMounted(() => {
       breadcrumb.items.push({
         text: 'Home',

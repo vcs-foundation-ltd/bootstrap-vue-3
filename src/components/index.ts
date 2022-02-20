@@ -75,6 +75,7 @@ import BTabs from './BTabs/BTabs.vue'
 import {BToast, BToaster, ToastPlugin} from './BToast'
 
 import BToastContainer from './BToast/BToaster.vue'
+import BTooltip from './BTooltip/BTooltip.vue'
 import BTransition from './BTransition/BTransition.vue'
 
 export default {
@@ -155,6 +156,7 @@ export default {
   BToaster,
   BToastContainer,
   BTabs,
+  BTooltip,
   BTransition,
   ToastPlugin,
 }

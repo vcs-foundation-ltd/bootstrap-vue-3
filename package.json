@@ -30,6 +30,7 @@
   },
   "types": "src/BootstrapVue.d.ts",
   "dependencies": {
+    "@popperjs/core": "^2.11.2",
     "core-js": "3.x.x"
   },
   "peerDependencies": {
